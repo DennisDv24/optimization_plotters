@@ -1,5 +1,5 @@
 ### An python script that optimizes 2 variable functions and shows the resul using matplotlib
-To change the function and the initial point change `f` and `starting_point` at `gradient_test.py`.
+To change the function and the initial point change `f` and `starting_point` at `optimization.py`.
 Note that the function must have an tuple as argument.
 For example:
 ```python3
