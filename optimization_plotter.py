@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
+from pylab import imshow, colorbar, cm
 
 def plot_computator(
     computator,
@@ -15,6 +16,8 @@ def plot_computator(
     s0 = starting_point[0]
     s1 = starting_point[1]
     
+    # TODO look how could I include all computator.points into the range that will be
+    # used as input to computator.f to plot it
     x0 = np.arange(
         min(s0, f0) - extra_space,
         max(s0, f0) + extra_space,
@@ -32,9 +35,11 @@ def plot_computator(
     points_x0 = list(map(lambda x: x[0], its_points))
     points_x1 = list(map(lambda x: x[1], its_points))
     out_points = list(map(f, its_points))
+    print('Generating final plot')
     fig = plt.figure()
-    ax = Axes3D(fig)
-    print(its_points) 
+    ax = Axes3D(fig, auto_add_to_figure=False)
+    fig.add_axes(ax)
+    # print(its_points) 
 
     ax.scatter3D(
         points_x0,
@@ -56,4 +61,6 @@ def plot_computator(
     )
     plt.legend(loc='upper left')
     plt.show()
+    # TODO make also contour lines plot
+
 
